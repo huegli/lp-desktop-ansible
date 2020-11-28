@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Fix caps lock
+    lineinfile:
+      path: ~/.xprofile
+      create: yes
+      line: /usr/bin/setxkbmap -option "ctrl:nocaps" &

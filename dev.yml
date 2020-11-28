@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+
+  tasks:
+  - name: Ensure basic cli stuff is installed
+    apt:
+      name: "{{ packages }}"
+      update-cache: yes
+    vars:
+      packages:
+        - git
+        - wget
+        - mosh
+        - tmux
+        - kakoune
+        - build-essential
+        - universal-ctags
+        - libsdl2-dev

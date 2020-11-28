@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Get my dotfiles
+    git:
+      repo: 'https://github.com/huegli/dotfiles.git'
+      dest: ~/dotfiles
+  - name: Directory for Kakoune
+    file:
+      path: ~/.config/kak
+      state: directory
+  - name: Kakoune configuration
+    file:
+      src: ~/dotfiles/kakrc
+      dest: ~/.config/kak/kakrc
+      state: link
+  - name: Directory for Kakoune colors
+    file:
+      path: ~/.config/kak/colors
+      state: directory
+  - name: Kakoune configuration
+    file:
+      src: ~/dotfiles/base16-mine.kak
+      dest: ~/.config/kak/colors/base16-mine.kak
+      state: link
+  - name: Directory for plugin manager
+    file:
+      path: ~/.config/kak/plugins
+      state: directory
+  - name: Kakoune plugin manager
+    git:
+      repo: 'https://github.com/robertmeta/plug.kak.git'
+      dest: ~/.config/kak/plugins/plug.kak
+  - name: Directory for Oberon emulators
+    file:
+      path: ~/3rdParty
+      state: directory
+  - name: Original Oberon Risc Emulator
+    git:
+      repo: 'https://github.com/pdewacht/oberon-risc-emu.git'
+      dest: ~/3rdParty/oberon-risc-emu
+  - name: Enhanced Oberon Risc Emulator
+    git:
+      repo: 'https://github.com/schierlm/oberon-risc-emu-enhanced.git'
+      dest: ~/3rdParty/oberon-risc-emu-enhanced
+
