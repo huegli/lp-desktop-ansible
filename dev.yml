@@ -10,6 +10,7 @@
     vars:
       packages:
         - git
+        - curl
         - wget
         - mosh
         - tmux
@@ -17,3 +18,4 @@
         - build-essential
         - universal-ctags
         - libsdl2-dev
+        - fonts-firacode

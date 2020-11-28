@@ -43,4 +43,20 @@
     git:
       repo: 'https://github.com/schierlm/oberon-risc-emu-enhanced.git'
       dest: ~/3rdParty/oberon-risc-emu-enhanced
-
+  - name: Set up Tmux plugin manager directory
+    file:
+      path: ~/.tmux/plugins
+      state: directory
+  - name: Tmux plugin manager
+    git:
+      repo: 'https://github.com/tmux-plugins/tpm'
+      dest: ~/.tmux/plugins/tpm
+  - name: Tmux configuration
+    file:
+      src: ~/dotfiles/tmux.conf
+      dest: ~/.tmux.conf
+      state: link
+  - name: Kakoune Connect
+    git:
+      repo: 'https://github.com/alexherbo2/connect.kak.git'
+      dest: ~/3rdParty/connect.kak
